@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-webapi-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: my-webapi-app
+        image: 218459525783.dkr.ecr.us-east-1.amazonaws.com/customer-management-backend-repo:latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: MYUSERNAME
+          value: "kavya"
+        - name: PASSWORD
+          value: "OVN2RsuA%MSDYEkQ"
+        - name: DATABASE
+          value: "myapp"
+        - name: PORTBACKEND
+          value: "5000"
+        - name: PORTFRONTEND
+          value: "3000"
+        - name: MYHOST
+          value: "customer-management-db.cfj1bf2shmj8.us-east-1.rds.amazonaws.com"
