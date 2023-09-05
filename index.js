@@ -74,7 +74,7 @@ app.get('/api/displayDeetails', (req, res) => {
 
 app.get('/api/healthcheck', (req, res) => {
   console.log("Success")
-  res.send("sufgcvccess")
+  res.send("success")
 });
 
  
